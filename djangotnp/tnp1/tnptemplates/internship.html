@@ -206,7 +206,7 @@
         <u><h1>Internship statistics</h1></u>
         <table>
           <tr>
-            <td colspan="3" rowspan="1" style="padding: 0px;">
+            <td colspan="3" rowspan="1" style="padding: 0px">
               <div class="graph">
                 <canvas id="branch"></canvas>
                 <canvas id="stipend"></canvas>
@@ -241,11 +241,17 @@
     </div>
 
     <script>
-      const branchData = JSON.parse('{{ branch_data|safe }}');
-      const stipendData = JSON.parse('{{ stipend_data|safe }}');
-      const Students_securing_internship_Data = JSON.parse('{{ students_securing_internship_data|safe }}');
-      const Internship_Opportunities_Data = JSON.parse('{{ internship_opportunities_data|safe }}');
-      const internship_bar_labels = JSON.parse('{{ internship_bar_labels|safe }}');
+      const branchData = JSON.parse(`{{ branch_data|safe }}`);
+      const stipendData = JSON.parse(`{{ stipend_data|safe }}`);
+      const Students_securing_internship_Data = JSON.parse(
+        `{{ students_securing_internship_data|safe }}`
+      );
+      const Internship_Opportunities_Data = JSON.parse(
+        `{{ internship_opportunities_data|safe }}`
+      );
+      const internship_bar_labels = JSON.parse(
+        `{{ internship_bar_labels|safe }}`
+      );
 
       const branch_labels = branchData.fields.map((field) => field.label);
       const values = branchData.fields.map((field) => field.value);
@@ -381,12 +387,10 @@
         },
       };
 
-      const Students_securing_internship_labels = Students_securing_internship_Data.fields.map(
-        (field) => field.label
-      );
-      const Students_securing_internship_values = Students_securing_internship_Data.fields.map(
-        (field) => field.value
-      );
+      const Students_securing_internship_labels =
+        Students_securing_internship_Data.fields.map((field) => field.label);
+      const Students_securing_internship_values =
+        Students_securing_internship_Data.fields.map((field) => field.value);
 
       const Students_securing_internship = document
         .getElementById("Students_securing_internship")
@@ -427,12 +431,10 @@
         },
       };
 
-      const Internship_Opportunities_labels = Internship_Opportunities_Data.fields.map(
-        (field) => field.label
-      );
-      const Internship_Opportunities_values = Internship_Opportunities_Data.fields.map(
-        (field) => field.value
-      );
+      const Internship_Opportunities_labels =
+        Internship_Opportunities_Data.fields.map((field) => field.label);
+      const Internship_Opportunities_values =
+        Internship_Opportunities_Data.fields.map((field) => field.value);
 
       const Internship_Opportunities = document
         .getElementById("Internship_Opportunities")
