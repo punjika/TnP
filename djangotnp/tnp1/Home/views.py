@@ -2,7 +2,9 @@ from django.shortcuts import render
 import json
 import os
 
-
+def student(request):
+    return render(request, 'studentdashboard.html')
+    
 def TnPStats(request):
     filePath = (
         r"Y:\Projects\TnP\TNPProject\TnP\djangotnp\tnp1\static\Data\training_data.json"
